@@ -18,9 +18,7 @@ sumbit.addEventListener("click",infixEvaluated);
 clear.addEventListener("click",earseALL);
 
 let s=[];
-s[0]='';
 let exp="";
-let idx=0;
 
 function displayInfix(){
    display.innerHTML=displayArray();
@@ -35,36 +33,42 @@ function displayArray(){
 }
 
 function earseALL(){
-   idx=0;
    exp='';
    s=[];
-   s[0]='';
    display.innerHTML=s;
 }
 
 function removeOne(){
-   if(s[idx]!=''){
-     s[idx]=s[idx].slice(0,s.length);
+   if(exp!=''){
+      exp=exp.substring(0,exp.length-1);
    }else{
-      s[idx-1]='';
-      idx-=2;
+      if(Number.isInteger(s[s.length-1])){
+         exp=s.pop();
+         exp=exp.substring(0,exp.length-1);
+         if(exp!='') s.push(exp);
+         exp='';
+      }else{
+         s.pop();
+      }
+      console.log(s);
    }
-   display.innerHTML=s;
+   display.innerHTML=s+exp;
 }
 
 number.forEach((n)=>{
    n.addEventListener('click',()=>{
-      s[idx]+=n.innerText;
-      console.log(exp);
+      exp+=n.innerText;
       display.innerHTML=s+exp;
    });
 })
 
 operator.forEach((op)=>{
    op.addEventListener('click',()=>{
-      s[idx+1]=op.innerText;
-      idx+=2;
-      s[idx]='';
+      if(exp!=''){
+          s.push(exp);
+          exp='';
+      }    
+      s.push(op.innerText);
       display.innerHTML=s;
    })
 })
@@ -79,9 +83,9 @@ function checkPrec(op){
    return 0;
 }
 
- function perfOpertion(b, a, op){
+function perfOpertion(b, a, op){
    switch (op){
-       case '/':return a/b;
+       case '/':return (a/b).toFixed(4);
        case '*':return a*b;
        case '-':return a-b;
        case '+':return a+b;
@@ -97,30 +101,30 @@ function infixEvaluated(){
    let val=[];
    let op=[];
    for(let i=0;i<s.length;i++){
-      if(Number.isInteger(Number(s[i]))){
+      if(Number.isInteger(Number(s[i]))||Number.parseFloat(Number(s[i]))){
          val.push(Number(s[i]));
-      }else if(s[i]==opbrack.textContent){
+         console.log(val);
+      }else if(s[i]==opbrack.innerText){
          op.push(s[i]);
-      }else if(s[i]==closebrack.textContent){
-         while(op[op.length-1]!=opbrack.textContent){
-            val.push(Number(perfOpertion(val.pop(), val.pop(), op.pop())));
+      }else if(s[i]==closebrack.innerText){
+         while(op[op.length-1]!=opbrack.innerText){
+            val.push(perfOpertion(val.pop(), val.pop(), op.pop()));
          }
          op.pop();
       }else{
          while(op.length!=0&&checkPrec(op[op.length-1])>=checkPrec(s[i])){
-            val.push(Number(perfOpertion(val.pop(), val.pop(), op.pop())));
+            val.push(perfOpertion(val.pop(), val.pop(), op.pop()));
          }
             op.push(s[i]);
       }
    }
    while(op.length!=0){
-      val.push(Number(perfOpertion(val.pop(),val.pop(),op.pop())));
+      val.push(perfOpertion(val.pop(),val.pop(),op.pop()));
       console.log("val array 4:"+val);
    }
-     s=[];
-     s.push(String(val.pop()));
-     idx=0;
-     display.innerHTML="Result:"+s; 
+   s=[];
+   if(val[0]!=0)s.push(String(val.pop()));
+   display.innerHTML="Result:"+s; 
 }
 
 function infixToPrefix(){
@@ -135,10 +139,10 @@ function infixToPrefix(){
       let x=Number(s[i]);
       if(Number.isNaN(x)==false){
          valexp.push(s[i]);
-      }else if(op.length==0||s[i]==opbrack.textContent){
+      }else if(op.length==0||s[i]==opbrack.innerText){
          op.push(s[i]);
-      }else if(s[i]==closebrack.textContent){
-         while(op[op.length-1]!=opbrack.textContent){
+      }else if(s[i]==closebrack.innerText){
+         while(op[op.length-1]!=opbrack.innerText){
             let v2=valexp.pop();
             let v1=valexp.pop();
             valexp.push(op.pop()+v1+v2);
@@ -166,18 +170,17 @@ function infixToPostfix(){
    if(exp!=""){
       s.push(exp);
       exp="";
-      }
+   }
    var postfixexp="";
    let valexp=[];
    let op=[];
    for(let i=0;i<s.length;i++){
-      let num=Number(s[i]);
-      if(Number.isNaN(num)==false){
+      if(Number.isInteger(Number(s[i]))||Number.parseFloat(Number(s[i]))){
          valexp.push(s[i]);
-      }else if(op.length==0||s[i]==opbrack.textContent){
+      }else if(op.length==0||s[i]==opbrack.innerText){
          op.push(s[i]);
-      }else if(s[i]==closebrack.textContent){
-         while(op[op.length-1]!=opbrack.textContent){
+      }else if(s[i]==closebrack.innerText){
+         while(op[op.length-1]!=opbrack.innerText){
             let v2=valexp.pop();
             let v1=valexp.pop();
             valexp.push(v1+v2+op.pop());
