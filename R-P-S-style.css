@@ -1,0 +1,91 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+:root{
+  --h1-font:2.5rem;
+  --display-font:1.5rem;
+  --hand-symbol:5.4rem;
+  --reset-font:1.4rem;
+}
+body{
+  background-color: rgb(25,25,25);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  justify-items:center;
+  align-items:center;
+}
+.containor{
+  width: 60%;
+  display: grid;
+  row-gap: 20px;
+  justify-items: center;
+  align-items:center;
+}
+.containor h1{
+  font-size: var(--h1-font);
+}
+.game{
+  cursor: pointer;
+  font-size: var(--hand-symbol);
+  background-color: rgb(25,25,25);
+  border:3px solid  white;
+  border-radius: 50%;
+  padding:8px;
+  box-shadow: 4px 4px 2px black;
+}
+.game:hover{
+  background-color:  rgb(67 60 60);
+}
+.game:active{
+  box-shadow: 0 0 0;
+  transform: scale(0.9,0.9);
+}
+.display{
+  font-size: var(--display-font);
+}
+#reset,#auto-play{
+  padding: 15px 20px 15px 20px;
+  font-size:var(--reset-font);
+  font-weight: 500;
+  background-color: rgb(89 1 84);
+  color:white;
+  border:none;
+  border-radius:30px;
+  box-shadow: 4px 4px 2px black;
+}
+#reset:active,#auto-play:active{
+  box-shadow: 0 0 0 ;
+  transform: scale(0.9,0.9);
+}
+@media screen and (max-width: 730px) {
+  :root{
+    --h1-font:2rem;
+    --display-font:1.4rem;
+    --hand-symbol:4rem;
+    --reset-font:1.1rem;
+  }
+  .containor{
+    width:100%;
+  }
+  .game{
+     padding:5px;
+  }
+}
+@media screen and (max-width: 350px){
+  :root{
+    --h1-font: 1.2rem;
+    --display-font: 1.1rem;
+    --hand-symbol: 2.4rem;
+    --reset-font: 1rem;
+  }
+   .containor{
+    width:100%;
+  }
+  .game{
+     padding:0px;
+  }
+}
