@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="logo-AK2.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="calculator.css">
+  <link rel="stylesheet" href="R-P-S-style.css">
+  <link rel="stylesheet" href="RPC-Cal.css">
+  <title>AK-JavaScript-Project</title>
+</head>
+<body>
+
+<section class="rpc-csl">
+
+  <section class="body-container">
+      <a id="arrow" href="#body-cal-box">&rarr;</a>
+      <div class="container">
+
+          <h1>Rock Paper Scissors</h1>
+          <div class="game-button">
+            <button class="game" value='0'>&#128074;</button>
+            <button class="game" value='1'>🤚</button>
+            <button class="game" value='2'>✌️</button>
+          </div> 
+          <div class="display-result display"></div>
+          <div class="display-moves display"></div>
+          <div class="display-score display"></div>
+          <div class="button-ra">
+            <button id="reset">Reset Score</button>
+            <button id="auto-play">Auto Play</button>
+          </div>
+
+      </div>
+
+   </section>
+
+  <section id="body-cal-box" class="body-cal-box">
+    <div class="cal-box">  
+      <div id="display"></div>
+      <div class="conversion">
+          <div class="clear">CE</div>
+          <div id="infix">infix</div>
+          <div id="prefix">prefix</div>
+          <div id="postfix">postfix</div>
+      </div>   
+      <div class="number">
+          <div class="num">1</div>
+          <div class="num">2</div>
+          <div class="num">3</div>
+          <div class="num">4</div>
+          <div class="num">5</div>
+          <div class="num">6</div>
+          <div class="num">7</div>
+          <div class="num">8</div>
+          <div class="num">9</div>
+          <div class="num">0</div>
+          <div class="special" id="sumbit">=</div>
+      </div>
+      <div class="operator">
+          <div class="special" id="erase">&larr;</div>
+          <div id="opbrackect" class="op">&#10088;</div>
+          <div id="closebracket" class="op">&#10089;</div>
+          <div class="op">+</div>
+          <div class="op">-</div>
+          <div class="op">*</div>
+          <div class="op">/</div>
+      </div>
+    </div>
+  </section>
+
+</section>  
+  <script src="calculator.js"></script>
+  <script src="RPC-Game.js"></script>
+</body>
+</html>

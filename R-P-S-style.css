@@ -8,7 +8,7 @@
   --hand-symbol:5.4rem;
   --reset-font:1.4rem;
 }
-body{
+.body-container{
   background-color: rgb(25,25,25);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -18,14 +18,14 @@ body{
   justify-items:center;
   align-items:center;
 }
-.containor{
+.container{
   width: 60%;
   display: grid;
   row-gap: 20px;
   justify-items: center;
   align-items:center;
 }
-.containor h1{
+.container h1{
   font-size: var(--h1-font);
 }
 .game{
@@ -68,7 +68,7 @@ body{
     --hand-symbol:4rem;
     --reset-font:1.1rem;
   }
-  .containor{
+  .container{
     width:100%;
   }
   .game{
@@ -82,7 +82,7 @@ body{
     --hand-symbol: 2.4rem;
     --reset-font: 1rem;
   }
-   .containor{
+   .container{
     width:100%;
   }
   .game{

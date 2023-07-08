@@ -15,7 +15,7 @@
    font-display: swap;
    src: url(https://fonts.gstatic.com/s/dmsans/v11/rP2Hp2ywxg089UriCZOIHQ.woff2) format('woff2');
  }
-body{
+.body-cal-box{
    background-color: rgb(255, 177, 120);
    height: 100vh;
    width: 100vw;
