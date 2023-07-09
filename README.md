@@ -3,6 +3,6 @@ Welcome to my GitHub repository! In this project, I have showcased my strong Jav
 
 The calculator I developed demonstrates my expertise in handling infix expressions and converting them to postfix and prefix notation. By leveraging the push and pop operations of a stack, I have implemented an efficient algorithm to convert these expressions.
 
-Additionally, I have utilized JSON functions to store score and the Document Object Model (DOM) to access and manipulate elements within the calculator and game interfaces.
+Additionally, I have utilized JSON methods to store score and the Document Object Model (DOM) to access and manipulate elements within the calculator and game interfaces.
 
 Through this project, I have emphasized the importance of utilizing data structures, algorithms, and JavaScript features to create interactive and functional applications. I hope this repository serves as a testament to my proficiency in JavaScript and showcases my ability to leverage various technologies to build engaging user experiences. Feel free to explore the code and provide any feedback or suggestions. Happy coding!
